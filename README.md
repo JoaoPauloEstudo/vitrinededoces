@@ -4,13 +4,16 @@ O **HeppyCupcake** é um aplicativo criado na plataforma **Flutterflow (No-code)
 
 ---
 
-## 🧩 Estrutura do Sistema
-- **Home Page:** login (CPF e senha), opção “Cadastrar-se” e “Ver Loja”.
+## Estrutura do Sistema
+- **Home:** login (CPF e senha), opção “Cadastrar-se” e “Ver Loja”.
 - **Categorias:** lista de tipos de doces.
 - **Produtos:** exibe nome, imagem e preço.
 - **Detalhes:** mostra informações completas de cada item.
 
-📸*Evidências das telas estão disponíveis na pasta `docs/prints`.*
+*Evidências das telas estão disponíveis no proprio git ou através dos links:
+- https://github.com/JoaoPauloEstudo/vitrinededoces/blob/main/categorias.png
+- https://github.com/JoaoPauloEstudo/vitrinededoces/blob/main/detalhes_produto.png
+- https://github.com/JoaoPauloEstudo/vitrinededoces/blob/main/lista%20de%20produtos.png
 
 ---
 
