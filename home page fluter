@@ -10,26 +10,7 @@ import 'package:provider/provider.dart';
 import 'home_model.dart';
 export 'home_model.dart';
 
-/// Crie uma tela inicial moderna e acolhedora para o aplicativo HeppyCupcake.
-///
-/// No topo, insira uma imagem grande e chamativa de cupcakes coloridos e
-/// decorados, ocupando cerca de 40% da altura da tela. Logo abaixo, exiba o
-/// título centralizado “Bem-vindo ao HeppyCupcake” e um subtítulo menor com o
-/// texto “Entre para descobrir os sabores mais felizes da confeitaria
-/// artesanal”.
-/// Abaixo, insira dois campos de entrada: um campo CPF, que aceite apenas
-/// números e exiba placeholder “Digite seu CPF”, e um campo senha segura, com
-/// caracteres ocultos e ícone para mostrar ou esconder senha.
-/// Inclua um botão principal “Entrar” com design arredondado e cor de
-/// destaque (rosa ou marrom suave).
-/// Logo abaixo, adicione o botão secundário “Cadastrar-se”, levando à tela de
-/// registro.
-/// No rodapé, insira o botão “Ver Loja”, permitindo acessar a vitrine sem
-/// login.
-/// Aplique animações suaves de entrada e cores pastéis (rosa, creme e
-/// branco).
-class HomeWidget extends StatefulWidget {
-  const HomeWidget({super.key});
+
 
   static String routeName = 'home';
   static String routePath = '/home';
