@@ -1,0 +1,493 @@
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
+import '/index.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+import 'home_model.dart';
+export 'home_model.dart';
+
+/// Crie uma tela inicial moderna e acolhedora para o aplicativo HeppyCupcake.
+///
+/// No topo, insira uma imagem grande e chamativa de cupcakes coloridos e
+/// decorados, ocupando cerca de 40% da altura da tela. Logo abaixo, exiba o
+/// título centralizado “Bem-vindo ao HeppyCupcake” e um subtítulo menor com o
+/// texto “Entre para descobrir os sabores mais felizes da confeitaria
+/// artesanal”.
+/// Abaixo, insira dois campos de entrada: um campo CPF, que aceite apenas
+/// números e exiba placeholder “Digite seu CPF”, e um campo senha segura, com
+/// caracteres ocultos e ícone para mostrar ou esconder senha.
+/// Inclua um botão principal “Entrar” com design arredondado e cor de
+/// destaque (rosa ou marrom suave).
+/// Logo abaixo, adicione o botão secundário “Cadastrar-se”, levando à tela de
+/// registro.
+/// No rodapé, insira o botão “Ver Loja”, permitindo acessar a vitrine sem
+/// login.
+/// Aplique animações suaves de entrada e cores pastéis (rosa, creme e
+/// branco).
+class HomeWidget extends StatefulWidget {
+  const HomeWidget({super.key});
+
+  static String routeName = 'home';
+  static String routePath = '/home';
+
+  @override
+  State<HomeWidget> createState() => _HomeWidgetState();
+}
+
+class _HomeWidgetState extends State<HomeWidget> {
+  late HomeModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => HomeModel());
+
+    _model.textController1 ??= TextEditingController();
+    _model.textFieldFocusNode1 ??= FocusNode();
+
+    _model.textController2 ??= TextEditingController();
+    _model.textFieldFocusNode2 ??= FocusNode();
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: Color(0xFFF8F5F5),
+        body: SafeArea(
+          top: true,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Container(
+                  width: double.infinity,
+                  height: 320,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: Image.network(
+                        '',
+                      ).image,
+                    ),
+                    borderRadius: BorderRadius.circular(0),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.network(
+                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/travel-app-xxhtq4/assets/jcot9nwgyd0d/heppylogo.png',
+                      width: 100,
+                      height: 100,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 32),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Bem-vindo ao HeppyCupcake',
+                            textAlign: TextAlign.center,
+                            style: FlutterFlowTheme.of(context)
+                                .headlineLarge
+                                .override(
+                                  font: GoogleFonts.outfit(
+                                    fontWeight: FontWeight.bold,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .headlineLarge
+                                        .fontStyle,
+                                  ),
+                                  color: Colors.black,
+                                  fontSize: 28,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.bold,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .headlineLarge
+                                      .fontStyle,
+                                ),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+                            child: Text(
+                              'Entre para descobrir os sabores mais felizes da confeitaria artesanal',
+                              textAlign: TextAlign.center,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyLarge
+                                  .override(
+                                    font: GoogleFonts.plusJakartaSans(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .fontStyle,
+                                    ),
+                                    color: Colors.black,
+                                    fontSize: 16,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .fontStyle,
+                                    lineHeight: 1.4,
+                                  ),
+                            ),
+                          ),
+                        ].divide(SizedBox(height: 12)),
+                      ),
+                      Form(
+                        key: _model.formKey,
+                        autovalidateMode: AutovalidateMode.disabled,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            TextFormField(
+                              controller: _model.textController1,
+                              focusNode: _model.textFieldFocusNode1,
+                              autofocus: false,
+                              textInputAction: TextInputAction.next,
+                              obscureText: false,
+                              decoration: InputDecoration(
+                                hintText: 'Digite seu CPF',
+                                hintStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      font: GoogleFonts.plusJakartaSans(
+                                        fontWeight: FontWeight.normal,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                      color: Colors.black,
+                                      fontSize: 16,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.normal,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0xFFE8D5D1),
+                                    width: 1.5,
+                                  ),
+                                  borderRadius: BorderRadius.circular(16),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0xFFB85450),
+                                    width: 1.5,
+                                  ),
+                                  borderRadius: BorderRadius.circular(16),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0x00000000),
+                                    width: 1.5,
+                                  ),
+                                  borderRadius: BorderRadius.circular(16),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0x00000000),
+                                    width: 1.5,
+                                  ),
+                                  borderRadius: BorderRadius.circular(16),
+                                ),
+                                filled: true,
+                                fillColor: Color(0xFFFEFCFC),
+                                contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                    20, 18, 20, 18),
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    font: GoogleFonts.plusJakartaSans(
+                                      fontWeight: FontWeight.normal,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    color: Colors.black,
+                                    fontSize: 16,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.normal,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
+                              keyboardType: TextInputType.number,
+                              cursorColor: Color(0xFFB85450),
+                              validator: _model.textController1Validator
+                                  .asValidator(context),
+                            ),
+                            TextFormField(
+                              controller: _model.textController2,
+                              focusNode: _model.textFieldFocusNode2,
+                              autofocus: false,
+                              textInputAction: TextInputAction.done,
+                              obscureText: !_model.passwordVisibility,
+                              decoration: InputDecoration(
+                                hintText: 'Digite sua senha',
+                                hintStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      font: GoogleFonts.plusJakartaSans(
+                                        fontWeight: FontWeight.normal,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                      color: Colors.black,
+                                      fontSize: 16,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.normal,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0xFFE8D5D1),
+                                    width: 1.5,
+                                  ),
+                                  borderRadius: BorderRadius.circular(16),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0xFFB85450),
+                                    width: 1.5,
+                                  ),
+                                  borderRadius: BorderRadius.circular(16),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0x00000000),
+                                    width: 1.5,
+                                  ),
+                                  borderRadius: BorderRadius.circular(16),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0x00000000),
+                                    width: 1.5,
+                                  ),
+                                  borderRadius: BorderRadius.circular(16),
+                                ),
+                                filled: true,
+                                fillColor: Color(0xFFFEFCFC),
+                                contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                    20, 18, 20, 18),
+                                suffixIcon: InkWell(
+                                  onTap: () => safeSetState(
+                                    () => _model.passwordVisibility =
+                                        !_model.passwordVisibility,
+                                  ),
+                                  focusNode: FocusNode(skipTraversal: true),
+                                  child: Icon(
+                                    _model.passwordVisibility
+                                        ? Icons.visibility_outlined
+                                        : Icons.visibility_off_outlined,
+                                    color: Colors.black,
+                                    size: 22,
+                                  ),
+                                ),
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    font: GoogleFonts.plusJakartaSans(
+                                      fontWeight: FontWeight.normal,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    color: Colors.black,
+                                    fontSize: 16,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.normal,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
+                              cursorColor: Color(0xFFB85450),
+                              validator: _model.textController2Validator
+                                  .asValidator(context),
+                            ),
+                          ].divide(SizedBox(height: 16)),
+                        ),
+                      ),
+                      Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          FFButtonWidget(
+                            onPressed: () {
+                              print('Button pressed ...');
+                            },
+                            text: 'Entrar',
+                            options: FFButtonOptions(
+                              width: double.infinity,
+                              height: 56,
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(32, 0, 32, 0),
+                              iconPadding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              color: Color(0xB7C10C04),
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleMedium
+                                  .override(
+                                    font: GoogleFonts.plusJakartaSans(
+                                      fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleMedium
+                                          .fontStyle,
+                                    ),
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .fontStyle,
+                                  ),
+                              elevation: 2,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                              ),
+                              borderRadius: BorderRadius.circular(25),
+                            ),
+                          ),
+                          FFButtonWidget(
+                            onPressed: () {
+                              print('Button pressed ...');
+                            },
+                            text: 'Cadastrar-se',
+                            options: FFButtonOptions(
+                              width: double.infinity,
+                              height: 52,
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(32, 0, 32, 0),
+                              iconPadding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              color: Color(0xFFFEFCFC),
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleMedium
+                                  .override(
+                                    font: GoogleFonts.plusJakartaSans(
+                                      fontWeight: FontWeight.w500,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleMedium
+                                          .fontStyle,
+                                    ),
+                                    color: Color(0xFFB85450),
+                                    fontSize: 16,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .fontStyle,
+                                  ),
+                              elevation: 0,
+                              borderSide: BorderSide(
+                                color: Color(0xFFB85450),
+                                width: 2,
+                              ),
+                              borderRadius: BorderRadius.circular(25),
+                            ),
+                          ),
+                        ]
+                            .divide(SizedBox(height: 16))
+                            .addToStart(SizedBox(height: 8)),
+                      ),
+                      Divider(
+                        height: 32,
+                        thickness: 1,
+                        indent: 40,
+                        endIndent: 40,
+                        color: Color(0xFFE8D5D1),
+                      ),
+                      FFButtonWidget(
+                        onPressed: () async {
+                          context.pushNamed(
+                            ListadeProdutosWidget.routeName,
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.leftToRight,
+                                duration: Duration(milliseconds: 2),
+                              ),
+                            },
+                          );
+                        },
+                        text: 'Ver Loja',
+                        options: FFButtonOptions(
+                          height: 48,
+                          padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                          iconPadding:
+                              EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                          color: Colors.transparent,
+                          textStyle:
+                              FlutterFlowTheme.of(context).bodyLarge.override(
+                                    font: GoogleFonts.plusJakartaSans(
+                                      fontWeight: FontWeight.w500,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .fontStyle,
+                                    ),
+                                    color: Colors.black,
+                                    fontSize: 16,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .fontStyle,
+                                  ),
+                          elevation: 0,
+                          borderSide: BorderSide(
+                            color: Color(0xFF8B7355),
+                            width: 1.5,
+                          ),
+                          borderRadius: BorderRadius.circular(18),
+                        ),
+                      ),
+                    ]
+                        .divide(SizedBox(height: 24))
+                        .addToStart(SizedBox(height: 32)),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
