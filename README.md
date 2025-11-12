@@ -1,4 +1,4 @@
-# happycupeke
+# happycupcake
 Projeto desenvolvido para o **PIT 2 – Engenharia de Software I**.  
 O **HeppyCupcake** é um aplicativo criado na plataforma **Flutterflow (No-code)**, com o objetivo de apresentar uma **vitrine digital de cupcakes e doces artesanais**, aplicando o modelo **MVC adaptado**.
 
